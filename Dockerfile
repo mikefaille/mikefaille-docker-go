@@ -9,7 +9,9 @@ RUN  apt-get update -q && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     wget -O - https://storage.googleapis.com/golang/go1.3.1.src.tar.gz | tar -v -C /usr/local -xzi && cd /usr/local/go/src && \
     ./make.bash --no-clean 2>&1 && \
-    mkdir -p /data/persistent/gopath
+    mkdir -p /data/persistent/gopath && \
+    apt-get remove -y --purge build-essential
+
 
 ENV PATH /usr/local/go/bin:$PATH
 ENV GOPATH /data/persistent/gopath
