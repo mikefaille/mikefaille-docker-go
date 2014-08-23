@@ -13,7 +13,7 @@ RUN  apt-get update -q && \
     apt-get remove -y --purge build-essential
 
 
-ENV PATH /usr/local/go/bin:$PATH
+ENV PATH /data/persistent/gopath/bin:/usr/local/go/bin:$PATH
 ENV GOPATH /data/persistent/gopath
 
 CMD ["bash"]
